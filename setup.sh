@@ -28,7 +28,7 @@ curl -fsSL https://raw.githubusercontent.com/mviereck/x11docker/master/x11docker
 echo "Configuring Wayfire"
 cp wayfire.ini ~/.config/wayfire.ini
 echo "Configuring Bash"
-cp .bashrc ~/.bashrc
+cp bashrc ~/.bashrc
 echo "Configuring Neovim"
 if [ -e ~/.config/nvim ]
 then
@@ -38,6 +38,6 @@ else
 	cp init.lua ~/.config/nvim/init.lua
 fi
 echo "Confiuring Firefox"
-cp -r .mozilla ~/.mozilla
+cp -r mozilla ~/.mozilla
 echo "Assembling Distrobox"
 distrobox assemble create
