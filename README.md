@@ -1,19 +1,19 @@
 # debian-setup-script
 ## What it will do
 This is a very simple Setup-script that will:
-    *Install the Packages in the packages.list file
-    *Install KVM/QEMU
-    *Install Docker
-    *Install X11Docker
-    *Install Flatpak
-    *Install Nix Package Manager
-    *Install Github-Cli
-    *Use my dotfiles to configure:
-        *Wayfire
-        *Bash
-        *Neovim
-        *XFCE4
-        *Firefox
+    * Install the Packages in the packages.list file
+    * Install KVM/QEMU
+    * Install Docker
+    * Install X11Docker
+    * Install Flatpak
+    * Install Nix Package Manager
+    * Install Github-Cli
+    * Use my dotfiles to configure:
+        * Wayfire
+        * Bash
+        * Neovim
+        * XFCE4
+        * Firefox
 ## How to use it
 First you need to have sudo privilages regular Debian will not give the Users sudo privilages so you have to give it to the User yourself.  
 
