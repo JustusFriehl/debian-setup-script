@@ -2,7 +2,7 @@
 sudo apt update && sudo apt upgrade
 PACK=$(cat packages.list)
 echo "Installing Packages"
-sudo apt install $PACK
+sudo apt install $PACK -y
 echo "Installing KVM/QEMU"
 sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virtinst libvirt-daemon virt-manager -y
 sudo systemctl status libvirtd
@@ -12,7 +12,7 @@ sudo adduser $USER libvirt
 sudo adduser $USER libvirt-qemu
 echo "Installing Docker"
 sudo apt-get update
-sudo apt-get install ca-certificates curl
+sudo apt-get install ca-certificates curl -y
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
@@ -21,8 +21,7 @@ echo \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-sudo usermod -aG podman $USER
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 echo "Installing X11Docker"
 curl -fsSL https://raw.githubusercontent.com/mviereck/x11docker/master/x11docker | sudo bash -s -- --update
 echo "Configuring Wayfire"
@@ -42,7 +41,7 @@ cp -r mozilla ~/.mozilla
 echo "Installing Nix"
 sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --no-daemon
 echo "Installing Flatpak"
-sudo apt install flatpak
+sudo apt install flatpak -y
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 echo "Setting up Github-Cli"
 (type -p wget >/dev/null || (sudo apt update && sudo apt install wget -y)) \
