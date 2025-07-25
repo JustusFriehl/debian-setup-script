@@ -26,7 +26,7 @@ echo "Installing X11Docker"
 curl -fsSL https://raw.githubusercontent.com/mviereck/x11docker/master/x11docker | sudo bash -s -- --update
 echo "Configuring Wayfire"
 cp wayfire.ini ~/.config/wayfire.ini
-echo "Configuring Bash"
+echo "Configuring Bash" 
 cp bashrc ~/.bashrc
 echo "Configuring Neovim"
 if [ -e ~/.config/nvim ]
@@ -37,7 +37,7 @@ else
 	cp init.lua ~/.config/nvim/init.lua
 fi
 echo "Confiuring Firefox"
-rm -rf ~/.mozilla
+rm -rf ~/.mozilla/
 cp -r mozilla ~/.mozilla
 echo "Installing Nix"
 sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --no-daemon
@@ -55,9 +55,11 @@ echo "Setting up Github-Cli"
 	&& sudo apt update \
 	&& sudo apt install gh -y
 echo "Configuring XFCE4"
-sudo rm -rf ~/.config/xfce4
+sudo rm -rf ~/.config/xfce4/
 cp -r xfce4 ~/.config/xfce4
 echo "Removing unneeded Packages"
 sudo apt autoremove -y
+echo "Installing Ollama"
+curl -fsSL https://ollama.com/install.sh | sh
 
 echo "Finished"
